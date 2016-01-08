@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>
+
+	<include file="$(find sr2_bringup)/robot/robot.launch" >
+		<arg name="robot_env" value="$(arg robot_env)"/>
+	</include>
+
+	<include file="$(find cob_mapping_slam)/launch/2dslam.launch">
+		<arg name="unified_laser_scan" value="true"/>
+	</include>
+
+</launch>
