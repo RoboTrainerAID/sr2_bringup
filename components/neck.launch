@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- send cob urdf to param server -->
+	<param name="head_description" command="$(find xacro)/xacro.py '$(find schunk_description)/urdf/pw70/pw70.urdf.xacro'" />
+    <node name="powercube_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" respawn="false" output="screen" >
+        <rosparam command="load" file="$(find sr2_bringup)/configs/powercube_driver.yaml"/>
+    </node>
+
+</launch>
