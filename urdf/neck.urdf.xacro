@@ -15,7 +15,7 @@
   <!-- arm -->
   <xacro:schunk_pw70 name="neck" parent="world" >
     <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:schunk_lwa4p>
+  </xacro:schunk_pw70>
 
   <!-- gazebo_plugin for arm -->
 <!--  <gazebo>
