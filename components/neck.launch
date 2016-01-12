@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
 <launch>
-    <!-- send cob urdf to param server -->
-	<param name="head_description" command="$(find xacro)/xacro.py '$(find schunk_description)/urdf/pw70/pw70.urdf.xacro'" />
+    <!-- send urdf to param server -->
+	<param name="neck_description" command="$(find xacro)/xacro.py '$(find schunk_description)/urdf/pw70/pw70.urdf.xacro'"/>
+
+	<!-- robot state publisher -->
+  <node name="neck_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <remap from="robot_description" to="neck_description"/>
+  </node>
+
     <node name="powercube_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" respawn="false" output="screen" >
         <rosparam command="load" file="$(find sr2_bringup)/configs/powercube_driver.yaml"/>
+		<remap from="/robot_description" to="neck_description"/>
     </node>
 
 </launch>
