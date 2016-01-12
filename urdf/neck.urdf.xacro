@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="sr2_neck" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+
+  <!-- schunk powercube -->
+  <xacro:include filename="$(find schunk_description)/urdf/pw70/pw70.urdf.xacro" />
+
+  <!-- Used for fixing robot to Gazebo -->
+  <link name="world"/>
+
+  <!-- arm -->
+  <xacro:schunk_pw70 name="neck" parent="world" >
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:schunk_lwa4p>
+
+  <!-- gazebo_plugin for arm -->
+<!--  <gazebo>
+    <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+      <robotNamespace>arm</robotNamespace>
+      <filterJointsParam>joint_names</filterJointsParam>
+    </plugin>
+  </gazebo>-->
+
+</robot>

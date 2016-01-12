@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <!-- send urdf to param server -->
-	<param name="neck_description" command="$(find xacro)/xacro.py '$(find schunk_description)/urdf/pw70/pw70.urdf.xacro'"/>
+	<param name="neck_description" command="$(find xacro)/xacro.py '$(find sr2_bringup)/urdf/neck.urdf.xacro'"/>
 
 	<!-- robot state publisher -->
   <node name="neck_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
