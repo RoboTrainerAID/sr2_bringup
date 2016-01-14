@@ -22,7 +22,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>cob_bringup</depend>
-  <depend>cob_navigation</depend>
+  <depend>cob_navigation_global</depend>
   <depend>iirob_led</depend>
 
 </package>
