@@ -8,7 +8,7 @@
       <remap from="robot_description" to="neck_description"/>
   </node>
 
-    <node name="powercube_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" respawn="false" output="screen" >
+    <node name="neck_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" respawn="false" output="screen" >
         <rosparam command="load" file="$(find sr2_bringup)/configs/powercube_driver.yaml"/>
 		<remap from="/robot_description" to="neck_description"/>
     </node>
