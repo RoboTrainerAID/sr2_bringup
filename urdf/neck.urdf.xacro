@@ -29,7 +29,7 @@
           -->
   </link>
 
-  <xacro:schunk_pw70 name="neck" parent="base_link" >
+  <xacro:schunk_pw70 name="neck" parent="base_link" is_upsidedown="true">
     <origin xyz="0 -0.24 0.836" rpy="0 0 ${-1/2 * M_PI}" />
   </xacro:schunk_pw70>
 
