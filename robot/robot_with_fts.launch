@@ -18,20 +18,6 @@
 
 	<rosparam ns="base" command="load" file="$(find sr2_bringup)/configs/sensor_configuration.yaml"/>
         
-	<!--
-	<include ns="base" file="$(find ati_force_torque)/ros/launch/sensor_parameters.launch">
-	        <arg name="is_socket" value="true"/>
-        </include>	
-	<node pkg="ati_force_torque" type="ForceTorqueSensor" name="ForceTorqueSensor" output="screen">
-	
-	    <rosparam command="load" file="$(arg config)"/>
-	
-	</node>
-		<include ns="base" file="$(find ati_force_torque)/ros/launch/sensor_parameters.launch">
-	        <arg name="is_socket" value="true"/>
-        </include>
-	
-	<node name="reconfigure_gui" pkg="rqt_reconfigure" type="rqt_reconfigure" /> -->
 	 
         <node pkg="tf2_ros" type="static_transform_publisher" name="fts_base_transform" args="-0.348 0 0.96 0 0 0 1 /base_link /fts_transform_frame"/>
 	<node pkg="tf2_ros" type="static_transform_publisher" name="fts_sensor_transform" args="0 0 0 0 0 0.89584996 -0.44435666 /fts_transform_frame /fts_reference_link "/>
