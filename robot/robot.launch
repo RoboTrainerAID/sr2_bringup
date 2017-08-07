@@ -7,7 +7,8 @@
 	<include file="$(find cob_bringup)/robots/raw3-5.xml" >
 		<arg name="pc1" value="i60sr2"/>
 	</include>
-
+    
+    <!--ERROR here: Ignoring transform for child_frame_id "led_rectangle_link" from authority "unknown_publisher" because of an invalid quaternion in the transform-->
 	<include file="$(find iirob_led)/launch/iirob_led_rectangle.launch"/>
 
 	<!-- upload default configuration parameters -->

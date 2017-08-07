@@ -12,8 +12,8 @@
 <arg name="use_sim_time" default="true"/>
 <arg name="gui" default="true"/>
 
-<!-- startup simulated world -->
-<include file="$(find cob_gazebo_worlds)/launch/world.launch">
+    <!-- startup simulated world -->
+    <include file="$(find cob_gazebo_worlds)/launch/world.launch">
 		<arg name="robot_env" value="$(arg robot_env)" />
 		<arg name="pkg_env_config" value="$(arg pkg_env_config)" />
 		<arg name="pkg_gazebo_worlds" value="$(arg pkg_gazebo_worlds)" />
@@ -21,19 +21,21 @@
 		<arg name="paused" value="$(arg paused)" />
 		<arg name="use_sim_time" value="$(arg use_sim_time)" />
 		<arg name="gui" value="$(arg gui)" />
-</include>
-
-<!-- startup simulated robot -->
-
+    </include>
+    
+<!-- startup navigation  -->
+	<include file="$(find cob_navigation_global)/launch/2dnav_ros_eband.launch">
+		<arg name="robot" value="raw3-5"/>
+		<arg name="robot_env" value="$(arg robot_env)"/>
+	</include>
+    
 <!-- upload default configuration parameters -->
-<!-- maybe first two params not necessary??-->
         <include file="$(find cob_bringup)/robots/raw3-5.xml" >
 		<arg name="use_fts" value="true"/>
 		<arg name="sim" value="true" />
 	</include>	
 
-    <node pkg="tf2_ros" type="static_transform_publisher" name="fts_base_transform" args="-0.348 0 0.96 0 0 0 1 /base_link /fts_transform_frame"/>
-	<node pkg="tf2_ros" type="static_transform_publisher" name="fts_sensor_transform" args="0 0 0 0 0 0.89584996 -0.44435666 /fts_transform_frame /fts_reference_link "/>
+	<node pkg="tf2_ros" type="static_transform_publisher" name="fts_sensor_transform" args="0 0 0 0 0 0.89584996 -0.44435666 /fts_base_link /fts_reference_link "/>
  
     
 	<!-- push robot_description to factory and spawn robot in gazebo -->
