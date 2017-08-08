@@ -23,11 +23,13 @@
 		<arg name="gui" value="$(arg gui)" />
     </include>
     
-<!-- startup navigation  -->
+<!-- startup navigation 
 	<include file="$(find cob_navigation_global)/launch/2dnav_ros_eband.launch">
 		<arg name="robot" value="raw3-5"/>
 		<arg name="robot_env" value="$(arg robot_env)"/>
-	</include>
+	</include> 
+    does not change costmap warning not needed
+    -->
     
 <!-- upload default configuration parameters -->
         <include file="$(find cob_bringup)/robots/raw3-5.xml" >
