@@ -35,6 +35,7 @@
         <include file="$(find cob_bringup)/robots/raw3-5.xml" >
 		<arg name="use_fts" value="true"/>
 		<arg name="sim" value="true" />
+        <arg name="pkg_hardware_config" value="$(find sr2_bringup)" />
 	</include>	
 
 	<node pkg="tf2_ros" type="static_transform_publisher" name="fts_sensor_transform" args="0 0 0 0 0 0.89584996 -0.44435666 /fts_base_link /fts_reference_link "/>
