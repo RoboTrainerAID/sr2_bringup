@@ -4,8 +4,10 @@
 	<arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>
 	<arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
 		  
-	<include file="$(find sr2_bringup)/robot/robot.launch"/>
+	<include file="$(find sr2_bringup)/robot/robot.launch">
     		<arg name="use_fts" value="true"/>
+                <arg name="pc1" value="i60sr2"/>
+	</include>
 
 	<rosparam ns="base" command="load" file="$(find sr2_bringup)/configs/sensor_configuration.yaml"/>
         
