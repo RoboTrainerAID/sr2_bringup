@@ -15,7 +15,7 @@
         <arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)" />
 	</include>
     
-	<include file="$(find iirob_led)/launch/iirob_led_rectangle.launch"/>
+	<include file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)"/>
 
 	<!-- upload default configuration parameters -->
 	<include file="$(arg pkg_env_config)/upload_navigation_goals.launch">
