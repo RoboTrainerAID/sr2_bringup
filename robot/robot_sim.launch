@@ -33,7 +33,9 @@
         <arg name="pc1" value="$(arg pc1)"/>
 	</include>	
     
-    <rosparam ns="base" command="load" file="$(find sr2_bringup)/configs/sensor_configuration_sim.yaml"/>
+    <include ns="base" file="$(find ati_force_torque)/ros/launch/sensor_parameters.launch">
+        <arg name="sim" value="true" />
+    </include>	
 	
     <node pkg="tf2_ros" type="static_transform_publisher" name="fts_sensor_transform" args="0 0 0 0 0 0.89584996 -0.44435666 /fts_base_link /fts_reference_link "/>
  

@@ -9,8 +9,8 @@ Publish:
 Node:
     ft_pub_freq: 200
     ft_pull_freq: 800
-    sensor_frame: "fts_reference_link"
-    transform_frame: "fts_transform_frame"
+    sensor_frame: ""
+    transform_frame: ""
     sim_forceX_param: 40
     sim_forceY_param: 55
     sim_torqueZ_param: 10
