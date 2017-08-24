@@ -6,7 +6,8 @@
 		  
 	<include file="$(find sr2_bringup)/robot/robot.launch">
     		<arg name="use_fts" value="true"/>
-                <arg name="pc1" value="i60sr2"/>
+            <arg name="pc1" value="i60sr2"/>
+            <arg name="real_fts" value="true"/>
 	</include>
 
 	<include ns="base" file="$(find sr2_bringup)/robot/sensor_parameters_robot.launch"/>  

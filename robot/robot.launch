@@ -5,12 +5,14 @@
 	<arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
     <arg name="pkg_hardware_config" default="$(find cob_hardware_config)"/>
     <arg name="use_fts" default="false"/>
+    <arg name="real_fts" default="false"/>
     <arg name="sim" default="false" />
     <arg name="pc1" default="i60sr2"/>
     
 	<include file="$(find cob_bringup)/robots/raw3-5.xml" >
 		<arg name="pc1" value="$(arg pc1)"/>
         <arg name="use_fts" value="$(arg use_fts)"/>
+        <arg name="real_fts" value="$(arg real_fts)"/>
         <arg name="sim" value="$(arg sim)" />
         <arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)" />
 	</include>

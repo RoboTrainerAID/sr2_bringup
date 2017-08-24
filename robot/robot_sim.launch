@@ -25,7 +25,7 @@
     </include>
     
 <!-- upload default configuration parameters -->
-        <include file="$(find sr2_bringup)/robot/robot.launch" >
+    <include file="$(find sr2_bringup)/robot/robot.launch" >
 		<arg name="use_fts" value="true"/>
 		<arg name="sim" value="true" />
         <arg name="pkg_hardware_config" value="$(find sr2_bringup)" />
@@ -36,6 +36,10 @@
     <include ns="base" file="$(find ati_force_torque)/ros/launch/sensor_parameters.launch">
         <arg name="sim" value="true" />
     </include>	
+    
+    <include file="$(find teleop_twist_joy)/launch/teleop.launch">
+        <arg name="config_filepath" value="$(find ati_force_torque)/config/teleop_sim.yaml"/>
+    </include>
 	
     <node pkg="tf2_ros" type="static_transform_publisher" name="fts_sensor_transform" args="0 0 0 0 0 0.89584996 -0.44435666 /fts_base_link /fts_reference_link "/>
  
