@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<launch>
+
+<arg name="robot_env" default="$(optenv ROBOT_ENV ipa-apartment)"/>
+<arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
+<arg name="pkg_robot_config" default="$(find cob_default_robot_config)"/>
+<arg name="pkg_gazebo_worlds" default="$(find cob_gazebo_worlds)"/>
+<arg name="world_name" default="worlds/empty.world"/>
+<arg name="initial_config" default=""/>
+<arg name="pc1" default="localhost"/>
+
+<arg name="paused" default="false"/>
+<arg name="use_sim_time" default="true"/>
+<arg name="gui" default="true"/>
+<remap from="/cmd_vel" to="/cmd_force"/>
+
+    <!-- startup simulated world -->
+    <include file="$(find cob_gazebo_worlds)/launch/world.launch">
+		<arg name="robot_env" value="$(arg robot_env)" />
+		<arg name="pkg_env_config" value="$(arg pkg_env_config)" />
+		<arg name="pkg_gazebo_worlds" value="$(arg pkg_gazebo_worlds)" />
+		<arg name="world_name" value="$(arg world_name)"/>
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="use_sim_time" value="$(arg use_sim_time)" />
+		<arg name="gui" value="$(arg gui)" />
+    </include>
+    
+<!-- upload default configuration parameters -->
+    <include file="$(find sr2_bringup)/robot/robot.launch" >
+		<arg name="use_fts" value="true"/>
+		<arg name="sim" value="true" />
+        <arg name="pkg_hardware_config" value="$(find sr2_bringup)" />
+        <arg name="robot_env" value="$(arg robot_env)" />
+        <arg name="pc1" value="$(arg pc1)"/>
+	</include>	
+    
+    <include ns="base" file="$(find ati_force_torque)/ros/launch/sensor_parameters.launch">
+        <arg name="sim" value="true" />
+    </include>	
+    
+    <include file="$(find teleop_twist_joy)/launch/teleop.launch">
+        <arg name="config_filepath" value="$(find ati_force_torque)/config/teleop_sim.yaml"/>
+    </include>
+	
+    <node pkg="tf2_ros" type="static_transform_publisher" name="fts_sensor_transform" args="0 0 0 0 0 0.89584996 -0.44435666 /fts_base_link /fts_reference_link "/>
+ 
+	<!-- push robot_description to factory and spawn robot in gazebo -->
+	<node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z 0.1 $(arg initial_config) -wait $(arg robot_env)" respawn="false" output="screen" />
+       
+	
+
+</launch>

@@ -1,14 +1,25 @@
 <?xml version="1.0"?>
 <launch>
 
-	<arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>
-	<arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
-
+    <arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>
+    <arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
+    <arg name="pkg_hardware_config" default="$(find cob_hardware_config)"/>
+    <arg name="use_fts" default="false"/>
+    <arg name="real_fts" default="false"/>
+    <arg name="sim" default="false" />
+    <arg name="pc1" default="i60sr2"/>
+    
 	<include file="$(find cob_bringup)/robots/raw3-5.xml" >
-		<arg name="pc1" value="i60sr2"/>
+	        <arg name="pc1" value="$(arg pc1)"/>
+                <arg name="use_fts" value="$(arg use_fts)"/>
+	        <arg name="real_fts" value="$(arg real_fts)"/>
+      	        <arg name="sim" value="$(arg sim)" />
+        	<arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)" />
 	</include>
-
-	<include file="$(find iirob_led)/launch/iirob_led_rectangle.launch"/>
+    
+	<include file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
+                <arg name="transformation" value = "3 -2 5 -0.8 0.7 0.2 0.9"/>
+        </include>
 
 	<!-- upload default configuration parameters -->
 	<include file="$(arg pkg_env_config)/upload_navigation_goals.launch">
