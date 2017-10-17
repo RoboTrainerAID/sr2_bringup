@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sr2" >
+
+  <xacro:arg name="neck" default="false"/>
+  <xacro:arg name="fts" default="false"/>
+  <xacro:arg name="real_fts" default="false"/>
+  <xacro:arg name="sick_visionary_t" default="false"/>
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
+
+  <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+
+  <xacro:include filename="$(find cob_hardware_config)/robots/raw3-5/urdf/properties.urdf.xacro" />
+
+  <!-- raw base -->
+  <xacro:include filename="$(find raw_description)/urdf/base_short/base.urdf.xacro" />
+
+  <!-- composition of the robot -->
+  <xacro:raw_base name="base"/>
+
+  <!-- COMPONENTS -->
+  <joint name="${name}_reference_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <parent link="base_link"/>
+            <child link="led_rectangle_link" />
+        </joint>
+  <link name="led_rectangle_link">
+  </link>
+
+  <xacro:if value="${neck}">
+    <xacro:include filename="$(find sr2_bringup)/urdf/components/neck.urdf.xacro" />
+  </xacro:if>
+
+  <xacro:if value="${fts}">
+    <xacro:include filename="$(find sr2_bringup)/urdf/components/fts.urdf.xacro" />
+  </xacro:if>
+
+  <xacro:if value="${sick_visionary_t}">
+    <xacro:include filename="$(find sr2_bringup)/urdf/components/sick_visionary_t.urdf.xacro" />
+  </xacro:if>
+
+</robot>

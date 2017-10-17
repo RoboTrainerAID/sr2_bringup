@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>
+    <arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
+
+    <include file="$(find sr2_bringup)/robot/sr2.launch">
+        <arg name="use_fts" value="true"/>
+        <arg name="real_fts" value="true"/>
+    </include>
+
+</launch>

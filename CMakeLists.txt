@@ -175,6 +175,8 @@ include_directories(
 ## Testing ##
 #############
 
+roslaunch_add_file_check(robot)
+
 ## Add gtest based cpp test target and link libraries
 # catkin_add_gtest(${PROJECT_NAME}-test test/test_sr2_bringup.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
