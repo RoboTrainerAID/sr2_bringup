@@ -142,11 +142,12 @@
         <include file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
         </include>
 
-	<include if="$(arg neck)" file="$(find sr2_bringup/components/neck.launch">
-            <arg name="sim" value="$(arg sim)"/>
+	<include if="$(arg neck)" file="$(find sr2_bringup/components/neck.launch" if="$(arg neck)">
 	</include>
-	<include if="$(arg fts)" file="$(find sr2_bringup/components/fts.launch">
-            <arg name="sim" value="$(arg sim)"/>
+	<include if="$(arg fts)" file="$(find sr2_bringup/components/fts.launch"  if="$(arg fts)">
+        <arg name="sim" value="$(arg sim)"/>
+	</include>
+	<include if="$(arg fts)" file="$(find sr2_bringup/components/sick_visionary_t.launch"  if="$(arg sick_visionary_t)">
 	</include>
 
     </group>
