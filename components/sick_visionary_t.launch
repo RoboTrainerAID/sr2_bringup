@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find sick_visionary_t_driver)/launch/sick_visionary_t_driver.launch">
+        <arg name="device_ip" value="141.3.80.137"/>
+    </include>
+
+</launch>

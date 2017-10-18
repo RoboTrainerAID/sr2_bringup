@@ -32,7 +32,7 @@
 
 
     <!-- send raw urdf to param server -->
-    <arg name="scenario_parameters" value="neck:=$(arg neck) fts:=$(arg fts) real_fts:=$(arg real_fts) sick_visionary_t:=$(arg sick_visionary_t)" />
+    <arg name="scenario_parameters" value="sim:=$(arg sim) neck:=$(arg neck) fts:=$(arg fts) real_fts:=$(arg real_fts) sick_visionary_t:=$(arg sick_visionary_t)" />
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find sr2_bringup)/urdf/sr2.urdf.xacro' $(arg scenario_parameters)"/>
 
@@ -142,11 +142,12 @@
         <include file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
         </include>
 
-	<include if="$(arg neck)" file="$(find sr2_bringup/components/neck.launch">
-            <arg name="sim" value="$(arg sim)"/>
+	<include file="$(find sr2_bringup/components/neck.launch" if="$(arg neck)">
 	</include>
-	<include if="$(arg fts)" file="$(find sr2_bringup/components/fts.launch">
-            <arg name="sim" value="$(arg sim)"/>
+	<include file="$(find sr2_bringup/components/fts.launch"  if="$(arg fts)">
+        <arg name="sim" value="$(arg sim)"/>
+	</include>
+	<include file="$(find sr2_bringup/components/sick_visionary_t.launch"  if="$(arg sick_visionary_t)">
 	</include>
 
     </group>

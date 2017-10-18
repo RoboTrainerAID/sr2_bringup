@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sr2" >
 
+  <xacro:arg name="sim" default="false"/>
   <xacro:arg name="neck" default="false"/>
   <xacro:arg name="fts" default="false"/>
   <xacro:arg name="real_fts" default="false"/>
