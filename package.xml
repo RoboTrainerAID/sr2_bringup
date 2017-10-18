@@ -21,8 +21,21 @@
   <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
 
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>ati_force_torque</depend>
   <depend>cob_bringup</depend>
   <depend>cob_navigation_global</depend>
   <depend>iirob_led</depend>
+  <depend>cob_script_server</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>teleop_twist_joy</depend>
+  <depend>cob_default_robot_config</depend>
+  <depend>tf2_ros</depend>
+  <depend>sick_visionary_t_driver</depend>
+  <depend>gazebo_ros</depend>
+  <depend>cob_mapping_slam</depend>
+  <depend>cob_gazebo_worlds</depend>
+
+
+  <test_depend>roslaunch</test_depend>
 
 </package>

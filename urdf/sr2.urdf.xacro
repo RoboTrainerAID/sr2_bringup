@@ -22,7 +22,7 @@
   <xacro:raw_base name="base"/>
 
   <!-- COMPONENTS -->
-  <joint name="${name}_reference_joint" type="fixed">
+  <joint name="led_rectangle_joint" type="fixed">
             <origin xyz="0 0 0" rpy="0 0 0" />
             <parent link="base_link"/>
             <child link="led_rectangle_link" />
@@ -30,15 +30,14 @@
   <link name="led_rectangle_link">
   </link>
 
-  <xacro:if value="${neck}">
+  <xacro:if value="$(arg neck)">
     <xacro:include filename="$(find sr2_bringup)/urdf/components/neck.urdf.xacro" />
   </xacro:if>
-
-  <xacro:if value="${fts}">
+  <xacro:if value="$(arg fts)">
     <xacro:include filename="$(find sr2_bringup)/urdf/components/fts.urdf.xacro" />
   </xacro:if>
 
-  <xacro:if value="${sick_visionary_t}">
+  <xacro:if value="$(arg sick_visionary_t)">
     <xacro:include filename="$(find sr2_bringup)/urdf/components/sick_visionary_t.urdf.xacro" />
   </xacro:if>
 
