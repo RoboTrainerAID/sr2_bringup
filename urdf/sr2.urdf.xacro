@@ -41,4 +41,8 @@
     <xacro:include filename="$(find sr2_bringup)/urdf/components/sick_visionary_t.urdf.xacro" />
   </xacro:if>
 
+  <xacro:if value="$(arg object_tracking)">
+        <xacro:include filename="$(find sr2_bringup)/urdf/components/object_tracking.urdf.xacro" />
+  </xacro:if>
+
 </robot>
