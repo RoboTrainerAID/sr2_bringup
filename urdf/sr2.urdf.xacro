@@ -6,6 +6,7 @@
   <xacro:arg name="fts" default="false"/>
   <xacro:arg name="real_fts" default="false"/>
   <xacro:arg name="sick_visionary_t" default="false"/>
+  <xacro:arg name="object_tracking" default="false"/>
 
   <!-- common stuff -->
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
