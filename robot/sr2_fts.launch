@@ -5,9 +5,12 @@
     <arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
 
     <include file="$(find sr2_bringup)/robot/sr2.launch"> 
-            <arg name="fts" value="false"/>
+            <arg name="fts" value="true"/>
 	    <arg name="real_fts" value="true"/>
-	    <arg name="sim" value="true"/>
-    </include>
+	    <arg name="sim" value="false"/>
+   	    <arg name="neck" value="false"/> 
+	    <arg name="sick_visionary_t" value="true"/>
+   </include>
+
 
 </launch>

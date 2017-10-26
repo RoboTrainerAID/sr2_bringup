@@ -12,7 +12,7 @@ Node:
     ft_pub_freq: 200
     ft_pull_freq: 800
     sensor_frame: "fts_reference_link"
-    transform_frame: "fts_transform_frame"
+    transform_frame: "fts_base_link"
 
 Calibration:
     Offset:
@@ -71,7 +71,7 @@ GravityCompensation:
      #z: 0.027346102 # m
     #force: 7.9459955 # f_G
     sensor_frame: "fts_reference_link"
-    world_frame: "fts_transform_frame"
+    world_frame: "fts_base_link"
 
 Publish:
     sensor_data: true
