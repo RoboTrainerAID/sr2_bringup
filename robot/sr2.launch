@@ -150,6 +150,7 @@
         <arg name="sim" value="$(arg sim)"/>
 	</include>
 	<include file="$(find sr2_bringup)/components/sick_visionary_t.launch"  if="$(arg sick_visionary_t)">
+       
 	</include>
 
     </group>

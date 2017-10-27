@@ -9,7 +9,7 @@
 	    <arg name="real_fts" value="true"/>
 	    <arg name="sim" value="false"/>
    	    <arg name="neck" value="false"/> 
-	    <arg name="sick_visionary_t" value="true"/>
+	    <arg name="sick_visionary_t" value="false"/>
    </include>
 
 
