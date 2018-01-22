@@ -7,8 +7,10 @@
     <arg name="pc1" default="localhost"/>
     <arg name="env-script" default="$(find cob_bringup)/env.sh"/>
     <arg name="pkg_hardware_config" default="$(find cob_hardware_config)"/>
+    <arg name="driver_yaml" default="$(arg pkg_hardware_config)/robots/common/raw3_base_driver.yaml"/>
     <arg name="controller_yaml" default="$(arg pkg_hardware_config)/robots/common/raw3_base_controller.yaml"/>
     <!--<arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>-->
+    <arg name="unload_default_controller" default="false"/>
 
     <!-- SOFTWARE COMPONENTS -->
     <arg name="mapping" default="false"/>
@@ -21,7 +23,7 @@
     <arg name="sick_visionary_t" default="false"/>
 
     <!-- simulations parameter -->
-    <arg name="robot_env" default="$(optenv ROBOT_ENV ipa-apartment)"/>
+    <arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>
     <arg name="pkg_env_config" default="$(find cob_default_env_config)"/>
     <arg name="pkg_gazebo_worlds" default="$(find cob_gazebo_worlds)"/>
     <arg name="world_name" default="worlds/empty.world"/>
@@ -97,16 +99,23 @@
         </include>
         <include file="$(find cob_bringup)/components/raw3_base.launch">
             <arg name="robot" value="$(arg robot)" />
-            <arg name="can_device" value="can1" />
+            <arg name="can_device" value="can2" />
             <arg name="sim" value="$(arg sim)"/>
+            <arg name="driver_yaml" value="$(arg driver_yaml)" />
             <arg name="controller_yaml" value="$(arg controller_yaml)"/>
         </include>
+        <!--
+        <group ns="base" if="$(arg unload_default_controller)">
+            <node pkg="controller_manager" type="controller_manager" name="base_controller_unloader" args="unload twist_controller" respawn="false" output="screen"/>
+        </group>
+        -->
+        <!-- TODO: Why?? -->
         <!-- overwrite control parameters with non-default values -->
         <rosparam ns="base" command="load" file="$(find cob_hardware_config)/robots/$(arg robot)/config/base_controller.yaml"/>
 
         <!-- start additional packages -->
         <include file="$(find cob_bringup)/tools/diagnostics_aggregator.launch" >
-                <arg name="robot" value="$(arg robot)" />
+            <arg name="robot" value="$(arg robot)" />
         </include>
 
         <include file="$(find cob_bringup)/tools/teleop.launch">
@@ -135,8 +144,8 @@
           <arg name="unified_laser_scan" value="true"/>
         </include>
         <include if="$(arg navigation)" file="$(find cob_navigation_global)/launch/2dnav_ros_eband.launch">
-		<arg name="robot" value="raw3-5"/>
-		<arg name="robot_env" value="$(arg robot_env)"/>
+  	  <arg name="robot" value="raw3-5"/>
+	  <arg name="robot_env" value="$(arg robot_env)"/>
 	</include>
 
 	<!-- HARDWARE COMPONENTS -->
