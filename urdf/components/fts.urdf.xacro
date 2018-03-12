@@ -8,11 +8,11 @@
   </xacro:if>
 
   <xacro:unless value="$(arg sim)">
-    <xacro:include filename="$(find ati_force_torque)/description/urdf/macros/mini58.urdf.xacro" />
+    <xacro:include filename="$(find sr2_bringup)/urdf/components/mini58.urdf.xacro" />
   </xacro:unless>
 
-<!--  <xacro:ati_mini58 name="fts" parent="base_link">
+  <xacro:ati_mini58 name="fts" parent="base_link">
     <origin xyz="-0.348 0  0.96" rpy="0 0 0" />
-  </xacro:ati_mini58>-->
+  </xacro:ati_mini58>
 
 </robot>

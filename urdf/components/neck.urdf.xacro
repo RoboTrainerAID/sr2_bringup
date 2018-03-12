@@ -2,11 +2,13 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sr2_neck" >
 
   <!-- common stuff -->
-  <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
+<!--  <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
   <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
-
+-->
   <!-- schunk powercube -->
   <xacro:include filename="$(find schunk_description)/urdf/pw70/pw70.urdf.xacro" />
+
+  <!--<link name="base_link" /> -->
 
   <xacro:schunk_pw70 name="neck" parent="base_link" is_upsidedown="true">
     <origin xyz="0 -0.24 0.836" rpy="0 0 ${-1/2 * M_PI}" />

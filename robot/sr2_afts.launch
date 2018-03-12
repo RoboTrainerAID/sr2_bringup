@@ -6,8 +6,7 @@
     <arg name="sim" default="false"/>
     <arg name="fts_sim" default="false"/>
 
-    <arg name="controller_yaml" value="$(find sr2_bringup)/configs/raw3_base_controller_fts.yaml" unless="$(arg fts_sim)" />
-    <arg name="controller_yaml" value="$(find sr2_bringup)/configs/raw3_base_controller_fts_sim.yaml" if="$(arg fts_sim)"  />
+    <arg name="controller_yaml" value="$(find sr2_bringup)/configs/raw3_base_controller_afts.yaml" unless="$(arg fts_sim)" />
 
     <include file="$(find sr2_bringup)/robot/sr2.launch"> 
         <arg name="controller_yaml" value="$(arg controller_yaml)"/>
