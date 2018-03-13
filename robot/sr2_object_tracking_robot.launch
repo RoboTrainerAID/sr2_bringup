@@ -7,7 +7,12 @@
         <arg name="sim" value="$(arg sim)"/>
         <arg name="neck" value="true"/> 
         <arg name="navigation" value="true"/>
-        <arg name="object_tracking" value="true"/>
+        <arg name="neck_camera" value="true"/>
     </include>
+    
+<!--     <origin xyz="-0.23 -1.40 0.80" rpy="0 0 0" /> -->
+<!--     1.906 -1.968 -->
+    
+    <node name="map_conveyor_transform" pkg="tf2_ros" type="static_transform_publisher" args="-0.23 -1.40 0.85 0 0 0 1 map conveyor" />
     
 </launch>

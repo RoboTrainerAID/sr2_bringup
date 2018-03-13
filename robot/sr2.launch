@@ -18,6 +18,7 @@
 
     <!-- HARDWARE COMPONENTS -->
     <arg name="neck" default="false"/>
+    <arg name="neck_camera" default="false"/>
     <arg name="fts" default="false"/>
     <arg name="fts_sim" default="false"/>
     <arg name="sick_visionary_t" default="false"/>
@@ -33,10 +34,10 @@
     <arg name="initial_config" default=""/>
     
     <!-- SCENARIO -->
-    <arg name="object_tracking" default="false"/>
+<!--     <arg name="object_tracking" default="false"/> -->
 
     <!-- send raw urdf to param server -->
-    <arg name="scenario_parameters" value="sim:=$(arg sim) neck:=$(arg neck) fts:=$(arg fts) fts_sim:=$(arg fts_sim) sick_visionary_t:=$(arg sick_visionary_t) object_tracking:=$(arg object_tracking)" />
+    <arg name="scenario_parameters" value="sim:=$(arg sim) neck:=$(arg neck) fts:=$(arg fts) fts_sim:=$(arg fts_sim) sick_visionary_t:=$(arg sick_visionary_t) neck_camera:=$(arg neck_camera)" />
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find sr2_bringup)/urdf/sr2.urdf.xacro' $(arg scenario_parameters)"/>
 
@@ -156,14 +157,14 @@
     </include>
     <!--<remap from="/leds_rectangle/led_force" to="/base/threshold_filtered"/>-->
     
-	<include file="$(find sr2_bringup)/components/neck.launch" if="$(arg neck)">
-	</include>
-	<include file="$(find sr2_bringup)/components/fts.launch"  if="$(arg fts)">
-        <arg name="sim" value="$(arg sim)"/>
-	</include>
-	<include file="$(find sr2_bringup)/components/sick_visionary_t.launch"  if="$(arg sick_visionary_t)">
-       
-	</include>
+    <include file="$(find sr2_bringup)/components/neck.launch" if="$(arg neck)">
+      <arg name="camera" value="$(arg neck_camera)"/>
+    </include>
+    <include file="$(find sr2_bringup)/components/fts.launch"  if="$(arg fts)">
+      <arg name="sim" value="$(arg sim)"/>
+    </include>
+    <include file="$(find sr2_bringup)/components/sick_visionary_t.launch"  if="$(arg sick_visionary_t)">
+    </include>
 
     </group>
 
