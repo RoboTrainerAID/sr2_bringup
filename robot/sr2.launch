@@ -31,10 +31,12 @@
     <arg name="use_sim_time" default="true"/>
     <arg name="gui" default="true"/>
     <arg name="initial_config" default=""/>
-
+    
+    <!-- SCENARIO -->
+    <arg name="object_tracking" default="false"/>
 
     <!-- send raw urdf to param server -->
-    <arg name="scenario_parameters" value="sim:=$(arg sim) neck:=$(arg neck) fts:=$(arg fts) fts_sim:=$(arg fts_sim) sick_visionary_t:=$(arg sick_visionary_t)" />
+    <arg name="scenario_parameters" value="sim:=$(arg sim) neck:=$(arg neck) fts:=$(arg fts) fts_sim:=$(arg fts_sim) sick_visionary_t:=$(arg sick_visionary_t) object_tracking:=$(arg object_tracking)" />
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find sr2_bringup)/urdf/sr2.urdf.xacro' $(arg scenario_parameters)"/>
 

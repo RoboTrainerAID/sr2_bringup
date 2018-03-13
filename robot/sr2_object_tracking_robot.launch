@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="sim" default="false"/>
+
+    <include file="$(find sr2_bringup)/robot/sr2.launch">
+        <arg name="sim" value="$(arg sim)"/>
+        <arg name="neck" value="true"/> 
+        <arg name="navigation" value="true"/>
+        <arg name="object_tracking" value="true"/>
+    </include>
+    
+</launch>

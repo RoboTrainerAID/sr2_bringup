@@ -1,18 +1,16 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sr2_object_tracking" >
 
-    <joint name="base_map" type="fixed">
+<!--    <joint name="base_map" type="fixed">
             <origin xyz="0 0 0" rpy="0 0 0" />
             <parent link="base_link"/>
             <child link="map" />
-        </joint>
-    <link name="map">
-    </link>
+    </joint>-->
     <joint name="map_conveyor" type="fixed">
-            <origin xyz="0 0 60" rpy="0 0 0" />
-            <parent link="map"/>
-            <child link="conveyor" />
-        </joint>
+        <origin xyz="0 0 60" rpy="0 0 0" />
+        <parent link="base_footprint"/>
+        <child link="conveyor" />
+    </joint>
     <link name="conveyor">
     </link>
 
