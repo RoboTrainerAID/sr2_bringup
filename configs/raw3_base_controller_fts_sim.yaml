@@ -12,8 +12,8 @@ twist_controller:
   type: hibrid_force_controllers/FTSController
   required_drive_mode: 3
   publish_rate: 50
-  max_rot_velocity: 0.2
-  max_trans_velocity: 0.2
+  max_rot_velocity: 1.0 #0.2
+  max_trans_velocity: 1.5 #0.2
   Controller:
     SamplingFrequency: 645.0
     DampingFrequency: 20.0

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>
+    <arg name="robot_env" default="$(optenv ROBOT_ENV ipr-robotrainer)"/>
     <arg name="sim" default="false"/>
     <arg name="fts_sim" default="false"/>
     

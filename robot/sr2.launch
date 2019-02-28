@@ -152,8 +152,9 @@
 	</include>
 
 	<!-- HARDWARE COMPONENTS -->
-    <include file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
+    <include ns="rosy_test" file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
         <arg name="pub_transform" value="false"/>
+	<arg name="port" value="/dev/ttyUSB1" />
     </include>
     <!--<remap from="/leds_rectangle/led_force" to="/base/threshold_filtered"/>-->
     
