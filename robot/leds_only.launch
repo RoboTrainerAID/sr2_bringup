@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+    <arg name="sim" default="false"/>
+
+	<!-- HARDWARE COMPONENTS -->
+    <include ns="rosy_test" file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
+        <arg name="pub_transform" value="false"/>
+        <arg name="port" value="/dev/ttyUSB1" />
+    </include>
+
+</launch>
