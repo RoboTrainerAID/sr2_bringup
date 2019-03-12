@@ -7,8 +7,8 @@
     <arg name="pc1" default="localhost"/>
     <arg name="env-script" default="$(find cob_bringup)/env.sh"/>
     <arg name="pkg_hardware_config" default="$(find cob_hardware_config)"/>
-    <arg name="driver_yaml" default="$(arg pkg_hardware_config)/robots/common/raw3_base_driver.yaml"/>
-    <arg name="controller_yaml" default="$(arg pkg_hardware_config)/robots/common/raw3_base_controller.yaml"/>
+    <arg name="driver_yaml" default="$(arg pkg_hardware_config)/robots/raw3/config/raw3_base_driver.yaml"/>
+    <arg name="controller_yaml" default="$(arg pkg_hardware_config)/robots/raw3/config/raw3_base_controller.yaml"/>
     <!--<arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>-->
     <arg name="unload_default_controller" default="false"/>
 
@@ -84,6 +84,8 @@
 
         <include file="$(find cob_bringup)/drivers/scan_unifier.launch" >
             <arg name="robot" value="$(arg robot)" />
+	    <arg name="input_scans" value="['base_laser_front/scan','base_laser_rear/scan']"/>
+            <arg name="output_scan" value="/scan_unified"/>
         </include>
 
         <include file="$(find cob_bringup)/tools/emergency_stop_monitor.launch" >

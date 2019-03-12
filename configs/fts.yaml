@@ -1,11 +1,11 @@
-CAN:
+HWComm:
     type: 5           # CANITFTYPE_SOCKET_CAN
     path: can0
 
 FTS:
     base_identifier: 0x20
     auto_init: true
-fts_name: "ATI_45_Mini"
+    fts_name: "ATI_45_Mini"
 
 Node:
     sim: false
@@ -13,6 +13,7 @@ Node:
     ft_pull_freq: 800
     sensor_frame: "fts_reference_link"
     transform_frame: "fts_base_link"
+    sensor_hw: "ati_force_torque/ATIForceTorqueSensorHWCan"
 
 Calibration:
     Offset:
