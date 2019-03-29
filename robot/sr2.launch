@@ -142,7 +142,7 @@
         </include>
 
 	<!-- push robot_description to factory and spawn robot in gazebo -->
-	<node if="$(arg sim)" name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z 0.1 $(arg initial_config) -wait $(arg robot_env)" respawn="false" output="screen" />
+	<node if="$(arg sim)" name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z 0.1 $(arg initial_config)" respawn="false" output="screen" />
 
 	<!-- SOFTWARE COMPONENTS -->
 	<include if="$(arg mapping)" file="$(find cob_mapping_slam)/launch/2dslam.launch">
