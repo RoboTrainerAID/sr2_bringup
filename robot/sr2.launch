@@ -11,6 +11,7 @@
     <arg name="controller_yaml" default="$(arg pkg_hardware_config)/robots/raw3/config/raw3_base_controller.yaml"/>
     <!--<arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>-->
     <arg name="unload_default_controller" default="false"/>
+    <arg name="base_controllers_to_spawn" default="joint_state_controller odometry_controller"/>
 
     <!-- SOFTWARE COMPONENTS -->
     <arg name="mapping" default="false"/>
@@ -108,6 +109,7 @@
             <arg name="sim" value="$(arg sim)"/>
             <arg name="driver_yaml" value="$(arg driver_yaml)" />
             <arg name="controller_yaml" value="$(arg controller_yaml)"/>
+            <arg name="base_controllers_to_spawn" value="$(arg base_controllers_to_spawn)"/>
         </include>
         <!--
         <group ns="base" if="$(arg unload_default_controller)">
