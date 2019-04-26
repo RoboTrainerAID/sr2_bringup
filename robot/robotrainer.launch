@@ -9,7 +9,7 @@
     <arg name="controller_yaml" value="$(find sr2_bringup)/configs/robotrainer_base_controller.yaml"/>
     
     <arg name="controllers_to_load" default="fts_controller"/>
-    <arg name="base_controllers_to_spawn" default="joint_state_controller odometry_controller"/>
+    <arg name="base_controllers_to_spawn" default="joint_state_controller odometry_controller twist_controller"/>
 
     <include file="$(find sr2_bringup)/robot/sr2.launch" >
         <arg name="robot_env" value="$(arg robot_env)"/>
