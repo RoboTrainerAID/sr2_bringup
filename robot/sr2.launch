@@ -8,11 +8,11 @@
     <arg name="env-script" default="$(find cob_bringup)/env.sh"/>
     <arg name="pkg_hardware_config" default="$(find cob_hardware_config)"/>
     <arg name="driver_yaml" default="$(arg pkg_hardware_config)/robots/raw3/config/raw3_base_driver.yaml"/>
-    <arg name="canopen_driver_yaml" default="$(arg pkg_hardware_config)/robots/raw3-5/config/base_driver.yaml"/>
+    <arg name="canopen_driver_yaml" default="$(arg pkg_hardware_config)/robots/$(arg robot)/config/base_driver.yaml"/>
     <arg name="controller_yaml" default="$(arg pkg_hardware_config)/robots/raw3/config/raw3_base_controller.yaml"/>
     <!--<arg name="robot_env" default="$(optenv ROBOT_ENV ipr-roboterhalle)"/>-->
     <arg name="unload_default_controller" default="false"/>
-    <arg name="base_controllers_to_spawn" default="joint_state_controller odometry_controller"/>
+    <arg name="base_controllers_to_spawn" default="joint_state_controller odometry_controller twist_controller"/>
 
     <!-- SOFTWARE COMPONENTS -->
     <arg name="mapping" default="false"/>
@@ -109,7 +109,7 @@
             <arg name="can_device" value="can2" />
             <arg name="sim" value="$(arg sim)"/>
             <arg name="driver_yaml" value="$(arg driver_yaml)" />
-	    <arg name="canopen_driver_yaml" value="$(arg canopen_driver_yaml)"/>
+            <arg name="canopen_driver_yaml" value="$(arg canopen_driver_yaml)"/>
             <arg name="controller_yaml" value="$(arg controller_yaml)"/>
             <arg name="base_controllers_to_spawn" value="$(arg base_controllers_to_spawn)"/>
         </include>
