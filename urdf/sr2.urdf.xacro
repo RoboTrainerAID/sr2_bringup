@@ -37,21 +37,21 @@
 
   <!-- RoboTrainer Joints -->
   <joint name="robotrainer_front_marker_joint" type="fixed">
-    <origin xyz="0.4 0 0" rpy="0 0 0" />
+    <origin xyz="0.375 0 0.3" rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="robotrainer_front_marker" />
   </joint>
   <link name="robotrainer_front_marker">
   </link>
   <joint name="robotrainer_left_marker_joint" type="fixed">
-    <origin xyz="0 0.2 0" rpy="0 0 0" />
+    <origin xyz="0 0.28 0.3" rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="robotrainer_left_marker" />
   </joint>
   <link name="robotrainer_left_marker">
   </link>
   <joint name="robotrainer_right_marker_joint" type="fixed">
-    <origin xyz="0 0.2 0" rpy="0 0 0" />
+    <origin xyz="0 -0.28 0.3" rpy="0 0 ${pi}" />
     <parent link="base_link"/>
     <child link="robotrainer_right_marker" />
   </joint>
