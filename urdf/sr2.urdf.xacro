@@ -35,6 +35,29 @@
     <origin xyz="${laser_rear_x} ${laser_rear_y} ${laser_rear_z}" rpy="${laser_rear_roll} ${laser_rear_pitch} ${laser_rear_yaw}" />
   </xacro:sick_s300_laser_v0>
 
+  <!-- RoboTrainer Joints -->
+  <joint name="robotrainer_front_marker_joint" type="fixed">
+    <origin xyz="0.4 0 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="robotrainer_front_marker" />
+  </joint>
+  <link name="robotrainer_front_marker">
+  </link>
+  <joint name="robotrainer_left_marker_joint" type="fixed">
+    <origin xyz="0 0.2 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="robotrainer_left_marker" />
+  </joint>
+  <link name="robotrainer_left_marker">
+  </link>
+  <joint name="robotrainer_right_marker_joint" type="fixed">
+    <origin xyz="0 0.2 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="robotrainer_right_marker" />
+  </joint>
+  <link name="robotrainer_right_marker">
+  </link>
+
   <!-- COMPONENTS -->
   <joint name="led_rectangle_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />

@@ -9,7 +9,7 @@ joint_state_controller:
 ## twist_controller
 twist_controller:
   use_fts: true
-  type: hibrid_force_controllers/AFTSController
+  type: robotrainer_controllers/AFTSController
   required_drive_mode: 3
   publish_rate: 50
   max_rot_velocity: 1.0 #0.4
@@ -105,7 +105,7 @@ odometry_controller:
 ## fake fts_controller
 fake_fts_controller:
   use_fts: true
-  type: hibrid_force_controllers/FTSControllerNoHw
+  type: robotrainer_controllers/FTSControllerNoHw
   required_drive_mode: 3
   publish_rate: 50
   max_rot_velocity: 1.0 #0.2

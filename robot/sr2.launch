@@ -86,7 +86,7 @@
 
         <include file="$(find cob_bringup)/drivers/scan_unifier.launch" >
             <arg name="robot" value="$(arg robot)" />
-	    <arg name="input_scans" value="['base_laser_front/scan','base_laser_rear/scan']"/>
+            <arg name="input_scans" value="['/base_laser_front/scan','/base_laser_rear/scan']"/>
             <arg name="output_scan" value="/scan_unified"/>
         </include>
 
@@ -132,9 +132,9 @@
         </include>
         <remap from="/cmd_vel" to="/cmd_force"/>
         
-        <include file="$(find cob_bringup)/tools/base_collision_observer.launch">
+<!--        <include file="$(find cob_bringup)/tools/base_collision_observer.launch">
             <arg name="robot" value="$(arg robot)"/>
-        </include>
+        </include>-->
         <include file="$(find cob_bringup)/tools/robot_state_publisher.launch">
             <arg name="robot" value="$(arg robot)"/>
         </include>
@@ -151,8 +151,8 @@
 	<!-- SOFTWARE COMPONENTS -->
 	<include if="$(arg mapping)" file="$(find cob_mapping_slam)/launch/2dslam.launch">
           <arg name="unified_laser_scan" value="true"/>
-        </include>
-        <include if="$(arg navigation)" file="$(find cob_navigation_global)/launch/2dnav_ros_eband.launch">
+    </include>
+    <include if="$(arg navigation)" file="$(find cob_navigation_global)/launch/2dnav_ros_eband.launch">
   	  <arg name="robot" value="raw3-5"/>
 	  <arg name="robot_env" value="$(arg robot_env)"/>
 	</include>
@@ -160,7 +160,7 @@
 	<!-- HARDWARE COMPONENTS -->
     <include ns="rosy_test" file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
         <arg name="pub_transform" value="false"/>
-	<arg name="port" value="/dev/ttyUSB1" />
+	<arg name="port" value="/dev/ttyUSB0" />
     </include>
     <!--<remap from="/leds_rectangle/led_force" to="/base/threshold_filtered"/>-->
     
