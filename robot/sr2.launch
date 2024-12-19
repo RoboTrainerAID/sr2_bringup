@@ -106,7 +106,7 @@
         </include>
         <include file="$(find cob_bringup)/components/raw3_base.launch">
             <arg name="robot" value="$(arg robot)" />
-            <arg name="can_device" value="can2" />
+            <arg name="can_device" value="can4" />
             <arg name="sim" value="$(arg sim)"/>
             <arg name="driver_yaml" value="$(arg driver_yaml)" />
             <arg name="canopen_driver_yaml" value="$(arg canopen_driver_yaml)"/>
@@ -158,9 +158,9 @@
 	</include>
 
 	<!-- HARDWARE COMPONENTS -->
-    <include ns="rosy_test" file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
+    <include file="$(find iirob_led)/launch/iirob_led_rectangle.launch" unless="$(arg sim)">
         <arg name="pub_transform" value="false"/>
-	<arg name="port" value="/dev/ttyUSB0" />
+        <arg name="port" value="/dev/ttyUSB0" />
     </include>
     <!--<remap from="/leds_rectangle/led_force" to="/base/threshold_filtered"/>-->
     

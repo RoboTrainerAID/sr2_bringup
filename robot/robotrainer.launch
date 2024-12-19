@@ -28,6 +28,6 @@
     </group>
     
 
-    <rosparam command="load" file="$(find robotrainer_parameters)/yamls/modalities_chain.yaml"/>  
+    <rosparam command="load" file="$(find robotrainer_bringup)/configs/modalities_chain.yaml"/>  
     
 </launch>

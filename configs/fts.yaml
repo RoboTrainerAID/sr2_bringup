@@ -1,6 +1,6 @@
 HWComm:
     type: 5           # CANITFTYPE_SOCKET_CAN
-    path: can0
+    path: can2
 
 FTS:
     base_identifier: 0x20
@@ -42,9 +42,10 @@ GravityCompensation:
   params: {world_frame: "base_link"}
 
 Publish:
-    sensor_data: true
-    low_pass: true
-    moving_mean: true
-    transformed_data: true
-    gravity_compensated: true
-    threshold_filtered: true
+    sensor_data: false
+    low_pass: false
+    moving_mean: false
+    transformed_data: false
+    gravity_compensated: false
+    threshold_filtered: false
+    output_data: true
